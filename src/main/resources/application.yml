@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /cms
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/system_admin
+    username: root
+    password: root
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.cjf.entity
