@@ -1,6 +1,8 @@
 package com.cjf.cotroller;
 
+import com.cjf.entity.Catalogue;
 import com.cjf.entity.SysUser;
+import com.cjf.service.CatalogueService;
 import com.cjf.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,8 @@ public class SysUserController {
 
     @Autowired
     SysUserService service;
-
+    @Autowired
+    CatalogueService catalogue;
     @RequestMapping("/")
     public String tologin(){
         return "login";
@@ -36,6 +39,11 @@ public class SysUserController {
 
                 if(password.equals(user.getPassword())){
                     session.setAttribute("login",user);
+
+                    List<Catalogue> catalogueList = catalogue.queryAllStaff();
+
+                    System.out.println("--------------------目录"+catalogueList);
+                    model.addAttribute("catalogueList",catalogueList);
                     return "index";
                 }
                 session.setAttribute("error","用户名或密码不正确！！");

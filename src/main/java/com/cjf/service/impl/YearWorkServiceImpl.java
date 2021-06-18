@@ -1,14 +1,15 @@
-package com.cjf.service;
+package com.cjf.service.impl;
 
 import com.cjf.entity.YearWorkTable;
 import com.cjf.mapper.YearWorkMapper;
+import com.cjf.service.YearWorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class YearWorkServiceImpl implements YearWorkService{
+public class YearWorkServiceImpl implements YearWorkService {
 
     @Autowired
     YearWorkMapper mapper;

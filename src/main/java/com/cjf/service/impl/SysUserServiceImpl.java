@@ -1,7 +1,8 @@
-package com.cjf.service;
+package com.cjf.service.impl;
 
 import com.cjf.entity.SysUser;
 import com.cjf.mapper.SysUserMapper;
+import com.cjf.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
 server:
   port: 8080
   servlet:
-    context-path: /cms
+    context-path:
+#    context-path: /cms
 
 
 spring:

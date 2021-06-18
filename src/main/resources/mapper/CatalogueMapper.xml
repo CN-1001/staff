@@ -2,8 +2,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cjf.mapper.SysUserMapper">
-    <select id="findUserByName" resultType="com.cjf.entity.SysUser">
+<mapper namespace="com.cjf.mapper.CatalogueMapper">
+
+    <select id="findUserByName" resultType="Catalogue">
         select * from sys_user where username = #{username}
+    </select>
+
+    <select id="queryAllStaff" resultType="com.cjf.entity.Catalogue">
+        select * from catalogue
     </select>
 </mapper>

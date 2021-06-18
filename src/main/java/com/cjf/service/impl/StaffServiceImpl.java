@@ -1,7 +1,8 @@
-package com.cjf.service;
+package com.cjf.service.impl;
 
 import com.cjf.entity.Staff;
 import com.cjf.mapper.StaffMapper;
+import com.cjf.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
