@@ -75,8 +75,14 @@
         <!-- 中部开始 -->
         <!-- 左侧菜单开始 -->
         <div class="left-nav">
+
             <div id="side-nav">
-                <ul id="nav">
+                <ul id="nav" >
+                    <li th:each="year:${catalogueList}">
+
+                        <a th:text="${year.getName()}" ></a>
+
+                    </li>
                     <li>
                         <a href="javascript:;">
                             <i class="iconfont left-nav-li" lay-tips="会员管理">&#xe6b8;</i>
@@ -353,7 +359,9 @@
                 <div id="tab_show"></div>
             </div>
         </div>
-        <div class="page-content-bg"></div>
+        <div class="page-content-bg">
+            ???????
+        </div>
         <style id="theme_style"></style>
         <!-- 右侧主体结束 -->
         <!-- 中部结束 -->

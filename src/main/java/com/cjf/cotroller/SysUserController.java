@@ -41,7 +41,6 @@ public class SysUserController {
                     session.setAttribute("login",user);
 
                     List<Catalogue> catalogueList = catalogue.queryAllStaff();
-
                     System.out.println("--------------------目录"+catalogueList);
                     model.addAttribute("catalogueList",catalogueList);
                     return "index";
