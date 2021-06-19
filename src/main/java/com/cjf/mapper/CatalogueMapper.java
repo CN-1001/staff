@@ -15,4 +15,6 @@ public interface CatalogueMapper extends BaseMapper<Catalogue> {
 
     //目录查询
     List<Catalogue> queryAllStaff();
+    List<Catalogue> getId(@Param("id") String id);
+    List<Catalogue> getPid(@Param("pid") Integer pid);
 }
