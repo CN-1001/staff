@@ -27,7 +27,18 @@ public class CatalogueController {
         model.addAttribute("catalogueList",catalogueList);
         return "index";
     }
+    @RequestMapping("/ml/insert")
+    public String add(){
+        return "catalogue-add";
+    }
 
+
+
+    public String insert(String id,String pid,String path,String name,Model mode){
+
+        System.out.println("添加目录"  +name);
+        return "";
+    }
 
 
 
