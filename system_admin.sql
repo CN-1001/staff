@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
+Source Server         : 127
 Source Server Version : 50548
 Source Host           : localhost:3306
 Source Database       : system_admin
@@ -10,10 +10,30 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2021-06-18 09:41:06
+Date: 2021-06-19 10:47:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for catalogue
+-- ----------------------------
+DROP TABLE IF EXISTS `catalogue`;
+CREATE TABLE `catalogue` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `pid` int(11) DEFAULT NULL COMMENT '父ID',
+  `name` varchar(255) DEFAULT NULL COMMENT '目录名',
+  `path` varchar(255) DEFAULT NULL COMMENT '路径',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='目录表';
+
+-- ----------------------------
+-- Records of catalogue
+-- ----------------------------
+INSERT INTO `catalogue` VALUES ('1', '0', '目录', null);
+INSERT INTO `catalogue` VALUES ('2', '1', '添加目录', null);
+INSERT INTO `catalogue` VALUES ('3', '1', '修改目录', null);
+INSERT INTO `catalogue` VALUES ('4', '1', '删除目录', null);
 
 -- ----------------------------
 -- Table structure for profession
