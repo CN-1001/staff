@@ -27,38 +27,39 @@
         <div class="fly-none">
             <div class="layui-col-md12">
                 <div class="layui-card">
-                    <div class="layui-card-header">添加目录</div>
+                    <div class="layui-card-header"> 目录</div>
                     <div class="layui-card-body ">
                         <table class="layui-table">
-                            <form action="/ml/add">
-                                <tbody>
+                            <tr>
+                                <td>id</td>
+                                <td>pid</td>
+                                <td>目录名称</td>
+                                <td>目录地址</td>
+                                <td>修改</td>
+                                <td>删除</td>
+                            </tr>
+                        </table>
 
-                                <tr>
-                                    <th>目录名称：</th>
-                                    <input name="id" value="" hidden="hidden"/>
-                                    <!--                                    <input name="catalog" value="" hidden="hidden"/>-->
-                                    <td><input type="text" name="name"></td>
-                                </tr>
-                                <tr>
-                                    <th>目录等级:</th>
-                                    <td><select name="pid">
-                                        <option th:each="city : ${cata}" th:text="${city.name}"
-                                                th:value="${city.getId()}"></option>
-                                    </select></td>
-                                </tr>
-                                <tr>
-                                    <th>目录地址:</th>
-                                    <td><input type="text" name="path"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <input type="submit" value="提交按钮" align="content" onclick="custom_close()"/>
+                        <table class="layui-table" th:each="c:${cate}">
+                            <tr>
+                                <ul class="sub-menu">
+                                    <td th:text="${c.getId()}"/>
+
+                                    <td th:text="${c.getPid()}"></td>
+                                    <td th:text="${c.getName()}"></td>
+                                    <td th:text="${c.getPath()}"></td>
+                                    <td>
+
+                                        <!--                                            <a th:href="'/ml/up'+'?id='+${c.getId()}">修改</a>-->
+                                        <a th:attr="href='/ml/up'+'?id='+${c.getId()}">修改</a>
+                                        <i class="iconfont nav_right"> </i>
+
                                     </td>
-                                </tr>
+                                    <td><a th:attr="href='/ml/del'+'?id='+${c.getId()}" onclick="del()">删除</a><i
+                                            class="iconfont nav_right">&#xe697;</i></td>
+                                </ul>
+                            </tr>
 
-
-                            </form>
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -67,6 +68,15 @@
     </div>
 </div>
 <script language="javascript">
+    // 这个脚本是 ie6和ie7 通用的脚本
+    function del() {
+        if (confirm("您确定要删除吗？")) {
+
+        } else {
+        }
+    }
+</script>
+<script>
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
@@ -75,16 +85,6 @@
         s.parentNode.insertBefore(hm, s);
     })();
 
-    function custom_close() {
-
-        alert("添加完成")
-        window.opener = null;
-        window.open('', '_self');
-        window.close();
-        window.close();
-
-
-    }
 </script>
 </body>
 </html>

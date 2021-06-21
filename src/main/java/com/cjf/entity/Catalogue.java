@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Catalogue implements Serializable {
-    private Integer id;
-    private Integer pid;
+    private String id;
+    private String pid;
     private String name;
     private String path;
 
