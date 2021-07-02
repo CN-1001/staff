@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.mapper.WorkMapper">
+
+    <select id="queryAll" resultType="com.cjf.entity.Worktable">
+        select *
+        from worktable
+    </select>
+    <select id="selectList" resultType="com.cjf.entity.Worktable">
+        select *
+        from worktable
+    </select>
+    <select id="getName_Workplace_Month" resultType="com.cjf.entity.Worktable">
+        select *
+        from worktable
+        where name = #{name} and workplace = #{workplace} and month = #{month}
+
+    </select>
+</mapper>

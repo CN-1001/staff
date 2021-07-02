@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+<style>
+    table {
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    td {
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.2</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" th:href="@{/css/font.css}">
+    <link rel="stylesheet" th:href="@{/css/xadmin.css}">
+    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+    <script th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 先引入 Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入 http-vue-loader -->
+    <script src="https://unpkg.com/http-vue-loader"></script>
+    <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
+
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href="">首页</a>
+            <a href="">演示</a>
+            <a>
+              <cite>导航元素</cite></a>
+          </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+       onclick="location.reload()" title="刷新">
+        <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+</div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body ">
+
+                    <tbody>
+                    <form class="layui-form" action="/work/insert">
+                        <!--<div class="layui-form-item">
+                            <label  >ID</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" lay-verify="title" autocomplete="off"
+                                       placeholder="请输入标题" class="layui-input">
+                            </div>
+                        </div>-->
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="name" autocomplete="off"
+                                               placeholder="请输入" class="layui-input" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div>
+                                    <label class="layui-form-label">月份</label>
+                                    <div class="layui-input-block">
+                                        <select class="layui-select" name="month">
+                                            <option value="1">1月</option>
+                                            <option value="2">2月</option>
+                                            <option value="3">3月</option>
+                                            <option value="4">4月</option>
+                                            <option value="5">5月</option>
+                                            <option value="6">6月</option>
+                                            <option value="7">7月</option>
+                                            <option value="8">8月</option>
+                                            <option value="9">9月</option>
+                                            <option value="10">10月</option>
+                                            <option value="11">11月</option>
+                                            <option value="12">12月</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div>
+                                    <label class="layui-form-label">地点</label>
+                                    <div class="layui-input-block">
+                                        <select class="layui-select" name="workplace">
+                                            <option class="" value="1">一月</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-input-block">
+                                    <label class="layui-form-label" th:text="${fal}"> </label></div>
+                            </div>
+                            <div class="layui-col-md2">
+
+                            </div>
+
+                        </div>
+
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">1号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w1"
+
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">2号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w2"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">3号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w3"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">4号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w4"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">5号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w5"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">6号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w6"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">7号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w7"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">8号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w8"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">9号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w9"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">10号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w10"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">11号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w11"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">12号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w12"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">13号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w13"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">14号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w14"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">15号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w15"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">16号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w16"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">17号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w17"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">18号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w18"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">19号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w19"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">20号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w20"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">21号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w21"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">22号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w22"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">23号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w23"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">24号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w24"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">25号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w25"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">26号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w26"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">27号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w27"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">28号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w28"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">29号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w29"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">30号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w30"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">31号</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="w31"
+                                               onkeypress="return (/[0-9/.]/.test(String.fromCharCode(event.keyCode)))"
+                                               placeholder="请输入" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <button type="submit" class="layui-btn">立即提交
+                                        </button>
+                                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    </tbody>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    layui.use(['laydate', 'form'], function () {
+        var laydate = layui.laydate;
+        var form = layui.form;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#start' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#end' //指定元素
+        });
+    });
+
+    /*用户-停用*/
+    function member_stop(obj, id) {
+        layer.confirm('确认要停用吗？', function (index) {
+
+            if ($(obj).attr('title') == '启用') {
+
+                //发异步把用户状态进行更改
+                $(obj).attr('title', '停用')
+                $(obj).find('i').html('&#xe62f;');
+
+                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
+                layer.msg('已停用!', {icon: 5, time: 1000});
+
+            } else {
+                $(obj).attr('title', '启用')
+                $(obj).find('i').html('&#xe601;');
+
+                $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
+                layer.msg('已启用!', {icon: 5, time: 1000});
+            }
+
+        });
+    }
+
+    /*用户-删除*/
+    function member_del(obj, id) {
+        layer.confirm('确认要删除吗？', function (index) {
+            //发异步删除数据
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!', {icon: 1, time: 1000});
+        });
+    }
+
+
+    function delAll(argument) {
+
+        var data = tableCheck.getData();
+
+        layer.confirm('确认要删除吗？' + data, function (index) {
+            //捉到所有被选中的，发异步进行删除
+            layer.msg('删除成功', {icon: 1});
+            $(".layui-form-checked").not('.header').parents('tr').remove();
+        });
+    }
+</script>
+<script>var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script>
+</html>

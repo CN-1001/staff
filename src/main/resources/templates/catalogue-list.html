@@ -1,6 +1,21 @@
 <!doctype html>
 <html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+<style>
+    table {
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    td {
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+</style>
 <head>
+    <meta charset="UTF-8">
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -10,6 +25,7 @@
     <link rel="stylesheet" th:href="@{/css/xadmin.css}">
     <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
     <script th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 先引入 Vue -->
@@ -18,8 +34,6 @@
     <script src="https://unpkg.com/http-vue-loader"></script>
     <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
 
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/xadmin.css">
 </head>
 <body>
 <div class="layui-container">
@@ -28,8 +42,9 @@
             <div class="layui-col-md12">
                 <div class="layui-card">
                     <div class="layui-card-header"> 目录</div>
-                    <div class="layui-card-body ">
-                        <table class="layui-table">
+                    <div class="layui-card-body  ">
+
+                        <table class="layui-table layui-form" style="table-layout: fixed">
                             <tr>
                                 <td>id</td>
                                 <td>pid</td>
@@ -38,29 +53,33 @@
                                 <td>修改</td>
                                 <td>删除</td>
                             </tr>
-                        </table>
+                            <tr th:each="c:${cate}">
 
-                        <table class="layui-table" th:each="c:${cate}">
-                            <tr>
-                                <ul class="sub-menu">
-                                    <td th:text="${c.getId()}"/>
+                                <td th:text="${c.getId()}"/>
 
-                                    <td th:text="${c.getPid()}"></td>
-                                    <td th:text="${c.getName()}"></td>
-                                    <td th:text="${c.getPath()}"></td>
-                                    <td>
+                                <td th:text="${c.getPid()}"></td>
+                                <td th:text="${c.getName()}"></td>
+                                <td th:text="${c.getPath()}"></td>
+                                <td class="td-manage ">
+                                    <a title="编辑" th:attr="href='/ml/up'+'?id='+${c.getId()}" href="javascript:"
+                                       lay-skin="primary">
+                                        <i class="layui-icon" style="font-size: 35px ;height: 10px">&#xe642;</i></a>
+                                    <!--                                        <i class="iconfont nav_right"> </i>-->
 
-                                        <!--                                            <a th:href="'/ml/up'+'?id='+${c.getId()}">修改</a>-->
-                                        <a th:attr="href='/ml/up'+'?id='+${c.getId()}">修改</a>
-                                        <i class="iconfont nav_right"> </i>
+                                </td>
+                                <td class="td-manage">
+                                    <a title="删除" th:attr="onclick='del('+${c.getId()}+')'" href="javascript:"
+                                       lay-skin="primary">
+                                        <i class="layui-icon" style="font-size: 35px">&#xe640;</i></a>
 
-                                    </td>
-                                    <td><a th:attr="href='/ml/del'+'?id='+${c.getId()}" onclick="del()">删除</a><i
-                                            class="iconfont nav_right">&#xe697;</i></td>
-                                </ul>
+
+                                    <!--                                        <i class="iconfont nav_right">&#xe697;</i></td>-->
+
                             </tr>
 
                         </table>
+
+
                     </div>
                 </div>
             </div>
@@ -69,8 +88,11 @@
 </div>
 <script language="javascript">
     // 这个脚本是 ie6和ie7 通用的脚本
-    function del() {
+    function del(id) {
+        // alert("点击删除");
         if (confirm("您确定要删除吗？")) {
+            // window.location.href = "/ml/del?id=" + id
+            $().href = "/ml/del?id=" + id
 
         } else {
         }

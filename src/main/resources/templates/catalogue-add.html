@@ -10,6 +10,7 @@
     <link rel="stylesheet" th:href="@{/css/xadmin.css}">
     <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
     <script th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 先引入 Vue -->
@@ -37,22 +38,27 @@
                                     <th>目录名称：</th>
                                     <input name="id" value="" hidden="hidden"/>
                                     <!--                                    <input name="catalog" value="" hidden="hidden"/>-->
-                                    <td><input type="text" name="name"></td>
+                                    <td><input type="text" name="name" class="layui-input" required/></td>
                                 </tr>
                                 <tr>
                                     <th>目录等级:</th>
-                                    <td><select name="pid">
-                                        <option th:each="city : ${cata}" th:text="${city.name}"
-                                                th:value="${city.getId()}"></option>
-                                    </select></td>
+                                    <td>
+
+                                        <select name="pid" class="layui-input">
+                                            <option th:each="city : ${cata}" th:text="${city.name}"
+                                                    th:value="${city.getId()}"></option>
+                                        </select>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>目录地址:</th>
-                                    <td><input type="text" name="path"></td>
+                                    <td><input type="text" name="path" class="layui-input" required/></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <input type="submit" value="提交按钮" align="content" onclick="custom_close()"/>
+                                        <input class="layui-btn" type="submit"
+                                               value="提交按钮" align="content" onclick="custom_close()"/>
                                     </td>
                                 </tr>
 

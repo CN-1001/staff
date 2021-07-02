@@ -58,6 +58,7 @@ public class CatalogueServiceImpl implements CatalogueService {
 
     @Override
     public void del(String id) {
+        System.out.println("删除的id：" + id);
         catalogueMapper.deleteById(id);
     }
 

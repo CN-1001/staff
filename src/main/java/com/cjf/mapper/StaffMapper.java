@@ -14,4 +14,10 @@ public interface StaffMapper extends BaseMapper<Staff> {
 
     //模糊查询 根据名字查询
     List<Staff> likeStaff(@Param("name") String name);
+
+    List<Staff> get_Staff_Name(String name);
+
+    void deleteById(Integer id);
+
+    List<Staff> selectName();
 }

@@ -24,4 +24,32 @@ public class StaffServiceImpl implements StaffService {
     public List<Staff> likeStaff(String name) {
         return mapper.likeStaff(name);
     }
+
+    @Override
+    public void insert(Staff staff) {
+        mapper.insert(staff);
+    }
+
+    @Override
+    public List<Staff> get_Staff_Name(String name) {
+        return mapper.get_Staff_Name(name);
+    }
+
+    @Override
+    public void del(Integer id) {
+        mapper.deleteById(id);
+    }
+
+    @Override
+    public Staff get_Staff_ById(Integer id) {
+        Staff staff = mapper.selectById(id);
+        return staff;
+    }
+
+    @Override
+    public List<Staff> getName() {
+
+        return mapper.selectName();
+        
+    }
 }

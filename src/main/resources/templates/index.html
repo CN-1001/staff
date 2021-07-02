@@ -40,7 +40,7 @@
     </div>
     <ul class="layui-nav left fast-add" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;">+新增</a>
+            <a href="javascript:">+新增</a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>
@@ -63,7 +63,7 @@
     </ul>
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;" th:text="${session.login.getUsername()}"></a>
+            <a href="javascript:" th:text="${session.login.getUsername()}"></a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>
@@ -88,7 +88,7 @@
             <!--                    一级目录-->
             <li th:each="year:${catalogueList}">
 
-                <a href="javascript:;">
+                <a href="javascript:">
                     <!--                            <i class="iconfont left-nav-li"  >&#xe6b8;</i>-->
                     <cite th:text="${year.getName()}"> </cite>
                     <i class="iconfont nav_right">&#xe697;</i>
@@ -109,7 +109,7 @@
             </li>
 
             <li>
-                <a href="javascript:;">
+                <a href="javascript:">
                     <i class="iconfont left-nav-li" lay-tips="会员管理">&#xe6b8;</i>
                     <cite>会员管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i></a>
@@ -135,7 +135,7 @@
                             <cite>会员删除</cite></a>
                     </li>
                     <li>
-                        <a href="javascript:;">
+                        <a href="javascript:">
                             <i class="iconfont">&#xe70b;</i>
                             <cite>会员管理</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
@@ -276,7 +276,7 @@
             <!--                        </ul>-->
             <!--                    </li>-->
             <li>
-                <a href="javascript:;">
+                <a href="javascript:">
                     <i class="iconfont left-nav-li" lay-tips="图标字体">&#xe6b4;</i>
                     <cite>图标字体</cite>
                     <i class="iconfont nav_right">&#xe697;</i></a>
@@ -289,7 +289,7 @@
                 </ul>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="javascript:">
                     <i class="iconfont left-nav-li" lay-tips="其它页面">&#xe6b4;</i>
                     <cite>其它页面</cite>
                     <i class="iconfont nav_right">&#xe697;</i></a>
