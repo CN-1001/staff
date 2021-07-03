@@ -113,7 +113,8 @@
                                     <label class="layui-form-label">地点</label>
                                     <div class="layui-input-block">
                                         <select class="layui-select" name="workplace">
-                                            <option class="" value="1">一月</option>
+                                            <option th:each="p:${place}" th:value="${p.name}"
+                                                    th:text="${p.getName()}"/>
                                         </select>
                                     </div>
                                 </div>
